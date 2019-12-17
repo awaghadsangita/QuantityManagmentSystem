@@ -89,4 +89,11 @@ public class LengthTest {
         Assert.assertFalse(result);
     }
 
+    @Test
+    public void given1FeetAndSame1FeetObject_WhenEqual_ShouldReturnTrue() {
+        Length feet1 = new Length(Length.Unit.FEET, 1.0);
+        boolean result = feet1.equals(feet1);
+        Assert.assertTrue(result);
+    }
+
 }
