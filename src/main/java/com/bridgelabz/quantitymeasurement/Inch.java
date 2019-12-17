@@ -1,19 +1,18 @@
 package com.bridgelabz.quantitymeasurement;
 
-public class Feet {
-
+public class Inch {
     private final double value;
 
-    public Feet(double value) {
-        this.value = value;
+    public Inch(double value) {
+        this.value=value;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Feet feet = (Feet) o;
-        return Double.compare(feet.value, value) == 0;
+        Inch inch = (Inch) o;
+        return Double.compare(inch.value, value) == 0;
     }
 
     @Override
