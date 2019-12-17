@@ -65,19 +65,28 @@ public class LengthTest {
         boolean result = feet.compare(feet1);
         Assert.assertTrue(result);
     }
+
     @Test
     public void given1InchAnd1Feet_WhenCompared_ShouldReturnEqualLength() {
-        Length inch = new Length(Length.Unit.INCH, 1.0);
-        Length feet = new Length(Length.Unit.FEET, 0.0833333);
+        Length inch = new Length(Length.Unit.INCH, 12);
+        Length feet = new Length(Length.Unit.FEET, 1);
         boolean result = inch.compare(feet);
         Assert.assertTrue(result);
     }
+
     @Test
     public void given1InchAnd1Inch_WhenCompared_ShouldReturnEqualLength() {
         Length inch1 = new Length(Length.Unit.INCH, 1.0);
         Length inch2 = new Length(Length.Unit.INCH, 1.0);
         boolean result = inch1.compare(inch2);
         Assert.assertTrue(result);
+    }
+
+    @Test
+    public void given1FeetAndNull_WhenEqual_ShouldReturnFalse() {
+        Length feet1 = new Length(Length.Unit.FEET, 1.0);
+        boolean result = feet1.equals(null);
+        Assert.assertFalse(result);
     }
 
 }
