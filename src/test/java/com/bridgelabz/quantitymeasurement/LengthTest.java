@@ -65,4 +65,12 @@ public class LengthTest {
         boolean result = feet.compare(feet1);
         Assert.assertTrue(result);
     }
+    @Test
+    public void given1InchAnd1Feet_WhenCompared_ShouldReturnEqualLength() {
+        Length inch = new Length(Length.Unit.INCH, 1.0);
+        Length feet = new Length(Length.Unit.FEET, 0.0833333);
+        boolean result = inch.compare(feet);
+        Assert.assertTrue(result);
+    }
+
 }
