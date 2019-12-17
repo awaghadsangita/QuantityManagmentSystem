@@ -110,6 +110,13 @@ public class LengthTest {
         boolean result = yard1.compare(yard2);
         Assert.assertTrue(result);
     }
+    @Test
+    public void given1YardAnd3Feet_WhenCompared_ShouldReturnEqualLength() {
+        Length yard1 = new Length(Length.Unit.YARD, 1.0);
+        Length feet = new Length(Length.Unit.FEET, 3.0);
+        boolean result = yard1.compare(feet);
+        Assert.assertTrue(result);
+    }
 
 
 }
