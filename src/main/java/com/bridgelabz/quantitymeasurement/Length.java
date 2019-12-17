@@ -1,7 +1,7 @@
 package com.bridgelabz.quantitymeasurement;
 
 public class Length {
-    enum Unit {FEET, INCH, YARD}
+    enum Unit {FEET, INCH, YARD,NULL}
 
     private final Unit unit;
     private final double value;
