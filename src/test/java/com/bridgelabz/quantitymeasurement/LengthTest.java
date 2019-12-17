@@ -135,4 +135,11 @@ public class LengthTest {
         Assert.assertFalse(result);
     }
 
+    @Test
+    public void given1FeetAnd1Yard_WhenCompared_ShouldReturnFalse() {
+        Length feet = new Length(Length.Unit.FEET, 1.0);
+        Length yard = new Length(Length.Unit.YARD, 1.0);
+        boolean result = feet.compare(yard);
+        Assert.assertFalse(result);
+    }
 }
