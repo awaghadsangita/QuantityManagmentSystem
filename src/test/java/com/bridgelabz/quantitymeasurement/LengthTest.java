@@ -150,4 +150,12 @@ public class LengthTest {
         boolean result = inch.compare(yard);
         Assert.assertFalse(result);
     }
+
+    @Test
+    public void given36InchAnd1Yard_WhenCompared_ShouldReturnTrue() {
+        Length inch = new Length(Length.Unit.INCH, 36.0);
+        Length yard = new Length(Length.Unit.YARD, 1.0);
+        boolean result = inch.compare(yard);
+        Assert.assertTrue(result);
+    }
 }
