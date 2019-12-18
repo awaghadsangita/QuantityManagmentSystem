@@ -16,4 +16,8 @@ public class Volume {
     public boolean compare() {
         return Double.compare(unitOne.convert(valueOne), unitTwo.convert(valueTwo)) == 0;
     }
+
+    public double AddTwoVolumeUnitsValue() {
+        return unitOne.convert(valueOne)+unitTwo.convert(valueTwo);
+    }
 }
