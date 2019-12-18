@@ -1,6 +1,6 @@
 package com.bridgelabz.quantitymeasurement;
 
-public enum UnitConverterEnum implements IUnitConversion {
+public enum LengthConverterEnum implements IUnitConversion {
 
     FEET_TO_INCH {
         @Override
