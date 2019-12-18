@@ -27,4 +27,8 @@ public class Length {
                 unit2 == length.unit2 &&
                 unit1 == length.unit1;
     }
+
+    public double addTwoLength() {
+        return unit1.convert(value1) + unit2.convert(value2);
+    }
 }

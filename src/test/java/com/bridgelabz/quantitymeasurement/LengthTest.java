@@ -133,4 +133,10 @@ public class LengthTest {
         Assert.assertTrue(result);
     }
 
+    @Test
+    public void given2InchAnd2Inch_ShouldReturnAddition() {
+        Length lengthObject = new Length(UnitConverterEnum.INCH_TO_INCH, 2.0, UnitConverterEnum.INCH_TO_INCH, 2.0);
+        Assert.assertEquals(4, lengthObject.addTwoLength(), 0.0);
+    }
+
 }
