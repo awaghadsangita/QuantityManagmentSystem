@@ -3,7 +3,7 @@ package com.bridgelabz.quantitymeasurement;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class VolumeUnitConverterEnumTest {
+public class VolumeConverterEnumTest {
     @Test
     public void givenOneGallon_ShouldReturnThreePointSevenEightLiter() {
         Assert.assertEquals(3.78, VolumeConverterEnum.GALLON_TO_LITER.convert(1), 0.0);
