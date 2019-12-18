@@ -139,4 +139,21 @@ public class LengthTest {
         Assert.assertEquals(4, lengthObject.addTwoLength(), 0.0);
     }
 
+    @Test
+    public void given1FeetAnd2Inch_ShouldReturnAddition() {
+        Length lengthObject = new Length(UnitConverterEnum.FEET_TO_INCH, 1.0, UnitConverterEnum.INCH_TO_INCH, 2.0);
+        Assert.assertEquals(14, lengthObject.addTwoLength(), 0.0);
+    }
+
+    @Test
+    public void given1FeetAnd1Feet_ShouldReturnAddition() {
+        Length lengthObject = new Length(UnitConverterEnum.FEET_TO_INCH, 1.0, UnitConverterEnum.FEET_TO_INCH, 1.0);
+        Assert.assertEquals(24, lengthObject.addTwoLength(), 0.0);
+    }
+
+    @Test
+    public void given2InchAndTwoPointFiveCentimeter_ShouldReturnAddition() {
+        Length lengthObject = new Length(UnitConverterEnum.INCH_TO_INCH, 2.0, UnitConverterEnum.CENTIMETER_TO_INCH, 2.5);
+        Assert.assertEquals(3, lengthObject.addTwoLength(), 0.0);
+    }
 }
