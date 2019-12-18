@@ -37,8 +37,8 @@ public class LengthTest {
     }
 
     @Test
-    public void given0FeetAnd0Inch_ShouldReturnEqualLength() {
-        Length lengthObject = new Length(UnitConverterEnum.FEET_TO_INCH, 0.0, UnitConverterEnum.INCH_TO_INCH, 0.0);
+    public void given1FeetAnd12Inch_ShouldReturnEqualLength() {
+        Length lengthObject = new Length(UnitConverterEnum.FEET_TO_INCH, 1.0, UnitConverterEnum.INCH_TO_INCH, 12.0);
         boolean result = lengthObject.compare();
         Assert.assertTrue(result);
     }
@@ -122,6 +122,13 @@ public class LengthTest {
     @Test
     public void given1YardAnd36Inch_WhenCompared_ShouldReturnTrue() {
         Length lengthObject = new Length(UnitConverterEnum.YARDS_TO_INCHES, 1.0, UnitConverterEnum.INCH_TO_INCH, 36.0);
+        boolean result = lengthObject.compare();
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void given2InchAnd5Centimeter_WhenCompared_ShouldReturnTrue() {
+        Length lengthObject = new Length(UnitConverterEnum.INCH_TO_INCH, 2.0, UnitConverterEnum.CENTIMETER_TO_INCH, 5.0);
         boolean result = lengthObject.compare();
         Assert.assertTrue(result);
     }
