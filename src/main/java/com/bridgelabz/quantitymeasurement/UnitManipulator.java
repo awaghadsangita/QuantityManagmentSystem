@@ -20,7 +20,7 @@ public class UnitManipulator<T> {
             throw new UnitManipulatorException("Different unit Comparision issue", UnitManipulatorException.ExceptionType.UNIT_TYPE_ISSUE);
         this.setEnumNameMap();
         that.setEnumNameMap();
-        return Double.compare(Math.round(this.enumMapList.get(this.unitName).convert(this.value)),Math.round(that.enumMapList.get(that.unitName).convert(that.value))) == 0;
+        return Double.compare(Math.round(this.enumMapList.get(this.unitName).convert(this.value)), Math.round(that.enumMapList.get(that.unitName).convert(that.value))) == 0;
     }
 
     public <T extends Enum<T> & IUnitConversion> void setEnumNameMap() {

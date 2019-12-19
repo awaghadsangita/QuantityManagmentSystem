@@ -6,12 +6,14 @@ public enum WeightConverterEnum implements IUnitConversion {
         public double convert(double value) {
             return value * GRAM_KILOGRAM_MULTIPLIER;
         }
-    }, KILOGRAM {
+    },
+    KILOGRAM {
         @Override
         public double convert(double value) {
             return value;
         }
-    }, TONNE {
+    },
+    TONNE {
         @Override
         public double convert(double value) {
             return value * TONNE_TO_KILOGRAM_MULTIPLIER;

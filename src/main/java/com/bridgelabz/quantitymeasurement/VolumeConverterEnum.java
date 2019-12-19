@@ -12,7 +12,8 @@ public enum VolumeConverterEnum implements IUnitConversion {
         public double convert(double value) {
             return value;
         }
-    }, MILLILITER {
+    },
+    MILLILITER {
         @Override
         public double convert(double value) {
             return value * MILLILITER_LITER_MULTIPLIER;
