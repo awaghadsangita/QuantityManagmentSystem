@@ -17,6 +17,10 @@ public class Length {
         return Double.compare(unitOne.convert(valueOne), unitTwo.convert(valueTwo)) == 0;
     }
 
+    public double addTwoLength() {
+        return unitOne.convert(valueOne) + unitTwo.convert(valueTwo);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -26,9 +30,5 @@ public class Length {
                 Double.compare(length.valueTwo, valueTwo) == 0 &&
                 unitTwo == length.unitTwo &&
                 unitOne == length.unitOne;
-    }
-
-    public double addTwoLength() {
-        return unitOne.convert(valueOne) + unitTwo.convert(valueTwo);
     }
 }

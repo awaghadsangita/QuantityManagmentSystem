@@ -1,7 +1,8 @@
 package com.bridgelabz.quantitymeasurement;
 
-public enum LengthConverterEnum implements IUnitConversion {
+import sun.tools.jconsole.Plotter;
 
+public enum LengthConverterEnum implements IUnitConversion {
     FEET_TO_INCH {
         @Override
         public double convert(double value) {
@@ -27,9 +28,7 @@ public enum LengthConverterEnum implements IUnitConversion {
             return value * CENTIMETER_INCH_MULTIPLIER;
         }
     };
-
-
-    public static final double FEET_INCH_MULTIPLIER = 12.0;
-    public static final double YARD_FEET_MULTIPLIER = 3.0;
-    public static final double CENTIMETER_INCH_MULTIPLIER = 0.4;
+    private static final double YARD_FEET_MULTIPLIER = 3;
+    private static final double FEET_INCH_MULTIPLIER = 12;
+    private static final double CENTIMETER_INCH_MULTIPLIER = 0.001;
 }

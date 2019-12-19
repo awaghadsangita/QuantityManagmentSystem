@@ -15,7 +15,7 @@ public class VolumeConverterEnumTest {
     }
 
     @Test
-    public void given1000MiliLiter_ShouldReturn1Liter(){
-        Assert.assertEquals(1, VolumeConverterEnum.MILILITER_TO_LITER.convert(1000), 0.0);
+    public void given1000MilliLiter_ShouldReturn1Liter(){
+        Assert.assertEquals(1, VolumeConverterEnum.MILLILITER_TO_LITER.convert(1000), 0.0);
     }
 }
