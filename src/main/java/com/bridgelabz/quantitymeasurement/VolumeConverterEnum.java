@@ -1,18 +1,18 @@
 package com.bridgelabz.quantitymeasurement;
 
 public enum VolumeConverterEnum implements IUnitConversion {
-    GALLON_TO_LITER {
+    GALLON {
         @Override
         public double convert(double value) {
             return value * GALLON_LITER_MULTIPLIER;
         }
     },
-    LITER_TO_LITER {
+    LITER {
         @Override
         public double convert(double value) {
             return value;
         }
-    }, MILLILITER_TO_LITER {
+    }, MILLILITER {
         @Override
         public double convert(double value) {
             return value * MILLILITER_LITER_MULTIPLIER;

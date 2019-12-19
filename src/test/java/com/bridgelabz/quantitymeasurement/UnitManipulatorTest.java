@@ -7,8 +7,8 @@ public class UnitManipulatorTest {
     @Test
     public void givenOneGallonAndThreePointSevenEightLiter_WhenCompare_ShouldReturnTrue() {
         try {
-            UnitManipulator unitManipulatorOne = new UnitManipulator(VolumeConverterEnum.GALLON_TO_LITER, 1,  VolumeConverterEnum.class);
-            UnitManipulator unitManipulatorTwo = new UnitManipulator(VolumeConverterEnum.LITER_TO_LITER, 3.78, VolumeConverterEnum.class);
+            UnitManipulator unitManipulatorOne = new UnitManipulator(VolumeConverterEnum.GALLON, 1,  VolumeConverterEnum.class);
+            UnitManipulator unitManipulatorTwo = new UnitManipulator(VolumeConverterEnum.LITER, 3.78, VolumeConverterEnum.class);
             Assert.assertTrue(unitManipulatorOne.compare(unitManipulatorTwo));
         } catch (UnitManipulatorException e) {
         }
@@ -17,8 +17,8 @@ public class UnitManipulatorTest {
     @Test
     public void given1000MilliLiterAnd1Liter_WhenCompare_ShouldReturnTrue() {
         try {
-            UnitManipulator unitManipulatorOne = new UnitManipulator(VolumeConverterEnum.MILLILITER_TO_LITER, 1000, VolumeConverterEnum.class);
-            UnitManipulator unitManipulatorTwo =new UnitManipulator (VolumeConverterEnum.LITER_TO_LITER, 1, VolumeConverterEnum.class);
+            UnitManipulator unitManipulatorOne = new UnitManipulator(VolumeConverterEnum.MILLILITER, 1000, VolumeConverterEnum.class);
+            UnitManipulator unitManipulatorTwo =new UnitManipulator (VolumeConverterEnum.LITER, 1, VolumeConverterEnum.class);
             Assert.assertTrue(unitManipulatorOne.compare(unitManipulatorTwo));
         } catch (UnitManipulatorException e) {
         }
@@ -27,8 +27,8 @@ public class UnitManipulatorTest {
     @Test
     public void given1GallonAndThreePointSevenEightLiter_ShouldReturnAdditionResult() {
         try {
-            UnitManipulator unitManipulatorOne = new UnitManipulator(VolumeConverterEnum.GALLON_TO_LITER, 1, VolumeConverterEnum.class);
-            UnitManipulator unitManipulatorTwo = new UnitManipulator( VolumeConverterEnum.LITER_TO_LITER, 3.78, VolumeConverterEnum.class);
+            UnitManipulator unitManipulatorOne = new UnitManipulator(VolumeConverterEnum.GALLON, 1, VolumeConverterEnum.class);
+            UnitManipulator unitManipulatorTwo = new UnitManipulator( VolumeConverterEnum.LITER, 3.78, VolumeConverterEnum.class);
             Assert.assertEquals(7.56, unitManipulatorOne.addTwoUnit(unitManipulatorTwo), 0.0);
         } catch (UnitManipulatorException e) {
         }
@@ -37,8 +37,8 @@ public class UnitManipulatorTest {
     @Test
     public void given1LiterAndThousandMilliLiter_ShouldReturnAdditionResult() {
         try {
-            UnitManipulator unitManipulatorOne = new UnitManipulator(VolumeConverterEnum.LITER_TO_LITER, 1, VolumeConverterEnum.class);
-            UnitManipulator unitManipulatorTwo = new UnitManipulator(VolumeConverterEnum.MILLILITER_TO_LITER, 1000, VolumeConverterEnum.class);
+            UnitManipulator unitManipulatorOne = new UnitManipulator(VolumeConverterEnum.LITER, 1, VolumeConverterEnum.class);
+            UnitManipulator unitManipulatorTwo = new UnitManipulator(VolumeConverterEnum.MILLILITER, 1000, VolumeConverterEnum.class);
             Assert.assertEquals(2, unitManipulatorOne.addTwoUnit(unitManipulatorTwo), 0.0);
         } catch (UnitManipulatorException e) {
         }
@@ -47,8 +47,8 @@ public class UnitManipulatorTest {
     @Test
     public void given1TonneAnd1000Gram_WhenPerformAddition_ShouldReturn1001KiloGram() {
         try {
-            UnitManipulator weightObjectOne = new UnitManipulator(WeightConverterEnum.TONNE_TO_KILOGRAM, 1.0, WeightConverterEnum.class);
-            UnitManipulator weightObjectTwo = new UnitManipulator( WeightConverterEnum.GRAM_TO_KILOGRAM, 1000, WeightConverterEnum.class);
+            UnitManipulator weightObjectOne = new UnitManipulator(WeightConverterEnum.TONNE, 1.0, WeightConverterEnum.class);
+            UnitManipulator weightObjectTwo = new UnitManipulator( WeightConverterEnum.GRAM, 1000, WeightConverterEnum.class);
             Assert.assertEquals(1001, weightObjectOne.addTwoUnit(weightObjectTwo), 0.0);
         } catch (UnitManipulatorException e) {
         }
@@ -57,8 +57,8 @@ public class UnitManipulatorTest {
     @Test
     public void given1TonneAnd1000Gram_WhenCompare_ShouldThrowException() {
         try {
-            UnitManipulator unitManipulatorOne = new UnitManipulator(WeightConverterEnum.TONNE_TO_KILOGRAM, 1.0, WeightConverterEnum.class);
-            UnitManipulator unitManipulatorTwo = new UnitManipulator( VolumeConverterEnum.MILLILITER_TO_LITER, 1000, VolumeConverterEnum.class);
+            UnitManipulator unitManipulatorOne = new UnitManipulator(WeightConverterEnum.TONNE, 1.0, WeightConverterEnum.class);
+            UnitManipulator unitManipulatorTwo = new UnitManipulator( VolumeConverterEnum.MILLILITER, 1000, VolumeConverterEnum.class);
             unitManipulatorOne.compare(unitManipulatorTwo);
         } catch (UnitManipulatorException e) {
             Assert.assertEquals(UnitManipulatorException.ExceptionType.UNIT_TYPE_ISSUE, e.type);
@@ -68,8 +68,8 @@ public class UnitManipulatorTest {
     @Test
     public void given1TonneAnd1000Gram_WhenAdded_ShouldThrowException() {
         try {
-            UnitManipulator unitManipulatorOne = new UnitManipulator(WeightConverterEnum.TONNE_TO_KILOGRAM, 1.0, WeightConverterEnum.class);
-            UnitManipulator unitManipulatorTwo = new UnitManipulator( VolumeConverterEnum.MILLILITER_TO_LITER, 1000, VolumeConverterEnum.class);
+            UnitManipulator unitManipulatorOne = new UnitManipulator(WeightConverterEnum.TONNE, 1.0, WeightConverterEnum.class);
+            UnitManipulator unitManipulatorTwo = new UnitManipulator( VolumeConverterEnum.MILLILITER, 1000, VolumeConverterEnum.class);
             unitManipulatorOne.addTwoUnit(unitManipulatorTwo);
         } catch (UnitManipulatorException e) {
             Assert.assertEquals(UnitManipulatorException.ExceptionType.UNIT_TYPE_ISSUE, e.type);
@@ -108,8 +108,8 @@ public class UnitManipulatorTest {
     @Test
     public void given1FeetAnd1Feet_WhenCompared_ShouldReturnEqualLength() {
         try {
-            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.FEET_TO_INCH, 1.0, LengthConverterEnum.class);
-            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.FEET_TO_INCH, 1.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.FEET, 1.0, LengthConverterEnum.class);
+            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.FEET, 1.0,LengthConverterEnum.class);
             Assert.assertTrue(unitManipulatorOne.compare(unitManipulatorTwo));
         } catch (UnitManipulatorException e) {
         }
@@ -118,8 +118,8 @@ public class UnitManipulatorTest {
     @Test
     public void given1InchAnd1Feet_WhenCompared_ShouldReturnEqualLength() {
         try {
-            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.INCH_TO_INCH, 1,LengthConverterEnum.class);
-            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.FEET_TO_INCH, 1.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.INCH, 1,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.FEET, 1.0,LengthConverterEnum.class);
             Assert.assertFalse(unitManipulatorOne.compare(unitManipulatorTwo));
         } catch (UnitManipulatorException e) {
         }
@@ -128,8 +128,8 @@ public class UnitManipulatorTest {
     @Test
     public void given1InchAnd1Inch_WhenCompared_ShouldReturnEqualLength() {
         try {
-            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.INCH_TO_INCH, 1.0,LengthConverterEnum.class);
-            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.INCH_TO_INCH, 1.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.INCH, 1.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.INCH, 1.0,LengthConverterEnum.class);
             Assert.assertTrue(unitManipulatorOne.compare(unitManipulatorTwo));
         } catch (UnitManipulatorException e) {
         }
@@ -138,8 +138,8 @@ public class UnitManipulatorTest {
     @Test
     public void given1YardAnd1Yard_WhenCompared_ShouldReturnEqualLength() {
         try {
-            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.YARDS_TO_INCHES, 1.0,LengthConverterEnum.class);
-            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.YARDS_TO_INCHES, 1.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.YARD, 1.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.YARD, 1.0,LengthConverterEnum.class);
             Assert.assertTrue(unitManipulatorOne.compare(unitManipulatorTwo));
         } catch (UnitManipulatorException e) {
         }
@@ -149,8 +149,8 @@ public class UnitManipulatorTest {
     @Test
     public void given1YardAnd3Feet_WhenCompared_ShouldReturnEqualLength() {
         try {
-            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.YARDS_TO_INCHES, 1.0,LengthConverterEnum.class);
-            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.FEET_TO_INCH, 3.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.YARD, 1.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.FEET, 3.0,LengthConverterEnum.class);
             Assert.assertTrue(unitManipulatorOne.compare(unitManipulatorTwo));
         } catch (UnitManipulatorException e) {
         }
@@ -159,8 +159,8 @@ public class UnitManipulatorTest {
     @Test
     public void given3FeetAnd1Yard_WhenCompared_ShouldReturnEqualLength() {
         try {
-            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.FEET_TO_INCH, 3.0,LengthConverterEnum.class);
-            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.YARDS_TO_INCHES, 1.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.FEET, 3.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.YARD, 1.0,LengthConverterEnum.class);
             Assert.assertTrue(unitManipulatorOne.compare(unitManipulatorTwo));
         } catch (UnitManipulatorException e) {
         }
@@ -169,8 +169,8 @@ public class UnitManipulatorTest {
     @Test
     public void given1FeetAnd1Yard_WhenCompared_ShouldReturnFalse() {
         try {
-            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.FEET_TO_INCH, 1.0,LengthConverterEnum.class);
-            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.YARDS_TO_INCHES, 1.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.FEET, 1.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.YARD, 1.0,LengthConverterEnum.class);
             Assert.assertFalse(unitManipulatorOne.compare(unitManipulatorTwo));
         } catch (UnitManipulatorException e) {
         }
@@ -179,8 +179,8 @@ public class UnitManipulatorTest {
     @Test
     public void given1InchAnd1Yard_WhenCompared_ShouldReturnFalse() {
         try {
-            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.INCH_TO_INCH, 1.0,LengthConverterEnum.class);
-            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.YARDS_TO_INCHES, 1.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.INCH, 1.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.YARD, 1.0,LengthConverterEnum.class);
             Assert.assertFalse(unitManipulatorOne.compare(unitManipulatorTwo));
         } catch (UnitManipulatorException e) {
         }
@@ -189,8 +189,8 @@ public class UnitManipulatorTest {
     @Test
     public void given36InchAnd1Yard_WhenCompared_ShouldReturnTrue() {
         try {
-            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.INCH_TO_INCH, 36.0,LengthConverterEnum.class);
-            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.YARDS_TO_INCHES, 1.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.INCH, 36.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.YARD, 1.0,LengthConverterEnum.class);
             Assert.assertTrue(unitManipulatorOne.compare(unitManipulatorTwo));
         } catch (UnitManipulatorException e) {
         }
@@ -199,8 +199,8 @@ public class UnitManipulatorTest {
     @Test
     public void given1YardAnd36Inch_WhenCompared_ShouldReturnTrue() {
         try {
-            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.YARDS_TO_INCHES, 1.0,LengthConverterEnum.class);
-            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.INCH_TO_INCH, 36.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.YARD, 1.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.INCH, 36.0,LengthConverterEnum.class);
             Assert.assertTrue(unitManipulatorOne.compare(unitManipulatorTwo));
         } catch (UnitManipulatorException e) {
         }
@@ -209,8 +209,8 @@ public class UnitManipulatorTest {
     @Test
     public void given2InchAnd5Centimeter_WhenCompared_ShouldReturnTrue() {
         try {
-            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.INCH_TO_INCH, 2.0,LengthConverterEnum.class);
-            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.CENTIMETER_TO_INCH, 5.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.INCH, 2.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.CENTIMETER, 5.0,LengthConverterEnum.class);
             Assert.assertTrue(unitManipulatorOne.compare(unitManipulatorTwo));
         } catch (UnitManipulatorException e) {
         }
@@ -219,8 +219,8 @@ public class UnitManipulatorTest {
     @Test
     public void given2InchAnd2Inch_ShouldReturnAddition() {
         try {
-            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.INCH_TO_INCH, 2.0,LengthConverterEnum.class);
-            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.INCH_TO_INCH, 2.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.INCH, 2.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.INCH, 2.0,LengthConverterEnum.class);
             Assert.assertEquals(4, unitManipulatorOne.addTwoUnit(unitManipulatorTwo), 0.0);
         } catch (UnitManipulatorException e) {
         }
@@ -229,8 +229,8 @@ public class UnitManipulatorTest {
     @Test
     public void given1FeetAnd2Inch_ShouldReturnAddition() {
         try {
-            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.FEET_TO_INCH, 1.0,LengthConverterEnum.class);
-            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.INCH_TO_INCH, 2.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.FEET, 1.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.INCH, 2.0,LengthConverterEnum.class);
             Assert.assertEquals(14, unitManipulatorOne.addTwoUnit(unitManipulatorTwo), 0.0);
         } catch (UnitManipulatorException e) {
         }
@@ -239,8 +239,8 @@ public class UnitManipulatorTest {
     @Test
     public void given1FeetAnd1Feet_ShouldReturnAddition() {
         try {
-            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.FEET_TO_INCH, 1.0,LengthConverterEnum.class);
-            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.FEET_TO_INCH, 1.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.FEET, 1.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.FEET, 1.0,LengthConverterEnum.class);
             Assert.assertEquals(24, unitManipulatorOne.addTwoUnit(unitManipulatorTwo), 0.0);
         } catch (UnitManipulatorException e) {
         }
@@ -249,8 +249,8 @@ public class UnitManipulatorTest {
     @Test
     public void given2InchAndTwoPointFiveCentimeter_ShouldReturnAddition() {
         try {
-            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.INCH_TO_INCH, 2.0,LengthConverterEnum.class);
-            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.CENTIMETER_TO_INCH, 2.5,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.INCH, 2.0,LengthConverterEnum.class);
+            UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.CENTIMETER, 2.5,LengthConverterEnum.class);
             Assert.assertEquals(3, Math.round(unitManipulatorOne.addTwoUnit(unitManipulatorTwo)), 0.0);
         } catch (UnitManipulatorException e) {
         }

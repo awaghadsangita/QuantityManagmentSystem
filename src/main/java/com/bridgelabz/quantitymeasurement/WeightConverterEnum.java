@@ -1,17 +1,17 @@
 package com.bridgelabz.quantitymeasurement;
 
 public enum WeightConverterEnum implements IUnitConversion {
-    GRAM_TO_KILOGRAM {
+    GRAM {
         @Override
         public double convert(double value) {
             return value * GRAM_KILOGRAM_MULTIPLIER;
         }
-    }, KILOGRAM_TO_KILOGRAM {
+    }, KILOGRAM {
         @Override
         public double convert(double value) {
             return value;
         }
-    }, TONNE_TO_KILOGRAM {
+    }, TONNE {
         @Override
         public double convert(double value) {
             return value * TONNE_TO_KILOGRAM_MULTIPLIER;
