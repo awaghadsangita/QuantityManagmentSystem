@@ -3,29 +3,24 @@ package com.bridgelabz.quantitymeasurement;
 import java.util.*;
 
 public class UnitManipulator<T> {
-    private String firstUnitName;
-    private String secondUnitName;
-    private double valueOne;
-    private double valueTwo;
+    private String unitName;
+    private double value;
     private Class<T> unitEnumClassName;
     Map<String, IUnitConversion> enumMapList = null;
 
-    public UnitManipulator(Object firstUnitName, double valueOne, Object secondUnitName, double valueTwo, Class<T> unitEnumClassName) {
+    public UnitManipulator(Object UnitName, double value, Class<T> unitEnumClassName) {
         this.enumMapList = new HashMap<>();
-        this.firstUnitName = firstUnitName.toString();
-        this.secondUnitName = secondUnitName.toString();
-        this.valueOne = valueOne;
-        this.valueTwo = valueTwo;
+        this.unitName = UnitName.toString();
+        this.value = value;
         this.unitEnumClassName = unitEnumClassName;
     }
 
-    public <T extends Enum<T> & IUnitConversion> boolean compare() throws UnitManipulatorException {
-        try {
-            this.setEnumNameMap();
-            return Double.compare(Math.round(this.enumMapList.get(firstUnitName).convert(valueOne)), Math.round(this.enumMapList.get(secondUnitName).convert(valueTwo))) == 0;
-        }catch(NullPointerException e){
-            throw new UnitManipulatorException("Different unit Comparision issue",UnitManipulatorException.ExceptionType.UNIT_TYPE_ISSUE);
-        }
+    public <T extends Enum<T> & IUnitConversion> boolean compare(UnitManipulator<T> that) throws UnitManipulatorException {
+        if (!this.unitEnumClassName.equals(that.unitEnumClassName))
+            throw new UnitManipulatorException("Different unit Comparision issue", UnitManipulatorException.ExceptionType.UNIT_TYPE_ISSUE);
+        this.setEnumNameMap();
+        that.setEnumNameMap();
+        return Double.compare(Math.round(this.enumMapList.get(this.unitName).convert(this.value)),Math.round(that.enumMapList.get(that.unitName).convert(that.value))) == 0;
     }
 
     public <T extends Enum<T> & IUnitConversion> void setEnumNameMap() {
@@ -35,13 +30,11 @@ public class UnitManipulator<T> {
         }
     }
 
-    public double addTwoUnit() throws UnitManipulatorException {
-        try {
-            this.setEnumNameMap();
-            return enumMapList.get(firstUnitName).convert(valueOne) + enumMapList.get(secondUnitName).convert(valueTwo);
-        }catch(NullPointerException e){
-            throw new UnitManipulatorException("Different unit Comparision issue",UnitManipulatorException.ExceptionType.UNIT_TYPE_ISSUE);
-        }
+    public double addTwoUnit(UnitManipulator<T> that) throws UnitManipulatorException {
+        if (!this.unitEnumClassName.equals(that.unitEnumClassName))
+            throw new UnitManipulatorException("Different unit addition issue", UnitManipulatorException.ExceptionType.UNIT_TYPE_ISSUE);
+        this.setEnumNameMap();
+        that.setEnumNameMap();
+        return this.enumMapList.get(this.unitName).convert(this.value) + that.enumMapList.get(that.unitName).convert(that.value);
     }
-
 }
