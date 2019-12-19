@@ -22,5 +22,4 @@ public enum TemperatureConverterEnum implements IUnitConversion{
             return value;
         }
     }
-
 }

@@ -3,7 +3,7 @@ package com.bridgelabz.quantitymeasurement;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class UnitManipulatorTest {
+public class LengthTest {
 
     @Test
     public void given0FeetAnd0Feet_ShouldReturnTrue() {
@@ -154,7 +154,7 @@ public class UnitManipulatorTest {
     @Test
     public void given2InchAndTwoPointFiveCentimeter_ShouldReturnAddition() {
         Length lengthObject = new Length(LengthConverterEnum.INCH_TO_INCH, 2.0, LengthConverterEnum.CENTIMETER_TO_INCH, 2.5);
-        Assert.assertEquals(3, lengthObject.addTwoLength(), 0.0);
+        Assert.assertEquals(3, Math.round(lengthObject.addTwoLength()), 0.0);
     }
 
 

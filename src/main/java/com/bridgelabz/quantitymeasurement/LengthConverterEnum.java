@@ -1,7 +1,5 @@
 package com.bridgelabz.quantitymeasurement;
 
-import sun.tools.jconsole.Plotter;
-
 public enum LengthConverterEnum implements IUnitConversion {
     FEET_TO_INCH {
         @Override
@@ -15,7 +13,6 @@ public enum LengthConverterEnum implements IUnitConversion {
             return value;
         }
     },
-
     YARDS_TO_INCHES {
         @Override
         public double convert(double value) {
@@ -30,5 +27,5 @@ public enum LengthConverterEnum implements IUnitConversion {
     };
     private static final double YARD_FEET_MULTIPLIER = 3;
     private static final double FEET_INCH_MULTIPLIER = 12;
-    private static final double CENTIMETER_INCH_MULTIPLIER = 0.001;
+    private static final double CENTIMETER_INCH_MULTIPLIER = 0.393701;
 }

@@ -45,7 +45,5 @@ public class UnitManipulator<T> {
         }catch(NullPointerException e){
             throw new UnitManipulatorException("Different unit Comparision issue",UnitManipulatorException.ExceptionType.UNIT_TYPE_ISSUE);
         }
-
-
     }
 }

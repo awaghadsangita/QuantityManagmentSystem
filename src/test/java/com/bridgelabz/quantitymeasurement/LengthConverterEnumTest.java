@@ -21,6 +21,6 @@ public class LengthConverterEnumTest {
 
     @Test
     public void given1Centimeter_ShouldReturnInInch() {
-        Assert.assertEquals(0.4, LengthConverterEnum.CENTIMETER_TO_INCH.convert(1.0), 0.0);
+        Assert.assertEquals(0.393701, LengthConverterEnum.CENTIMETER_TO_INCH.convert(1.0), 0.0);
     }
 }
