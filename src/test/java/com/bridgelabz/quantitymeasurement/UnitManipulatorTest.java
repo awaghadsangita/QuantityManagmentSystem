@@ -97,4 +97,144 @@ public class UnitManipulatorTest {
         } catch (UnitManipulatorException e) {
         }
     }
+    @Test
+    public void given1FeetAnd1Feet_WhenCompared_ShouldReturnEqualLength() {
+        try {
+            UnitManipulator lengthObject = new UnitManipulator(LengthConverterEnum.FEET_TO_INCH, 1.0, LengthConverterEnum.FEET_TO_INCH, 1.0,LengthConverterEnum.class);
+            boolean result = lengthObject.compare();
+            Assert.assertTrue(result);
+        } catch (UnitManipulatorException e) {
+        }
+    }
+
+    @Test
+    public void given1InchAnd1Feet_WhenCompared_ShouldReturnEqualLength() {
+        try {
+            UnitManipulator lengthObject = new UnitManipulator(LengthConverterEnum.INCH_TO_INCH, 1, LengthConverterEnum.FEET_TO_INCH, 1.0,LengthConverterEnum.class);
+            boolean result = lengthObject.compare();
+            Assert.assertFalse(result);
+        } catch (UnitManipulatorException e) {
+        }
+    }
+
+    @Test
+    public void given1InchAnd1Inch_WhenCompared_ShouldReturnEqualLength() {
+        try {
+            UnitManipulator lengthObject = new UnitManipulator(LengthConverterEnum.INCH_TO_INCH, 1.0, LengthConverterEnum.INCH_TO_INCH, 1.0,LengthConverterEnum.class);
+            boolean result = lengthObject.compare();
+            Assert.assertTrue(result);
+        } catch (UnitManipulatorException e) {
+        }
+    }
+
+    @Test
+    public void given1YardAnd1Yard_WhenCompared_ShouldReturnEqualLength() {
+        try {
+            UnitManipulator lengthObject = new UnitManipulator(LengthConverterEnum.YARDS_TO_INCHES, 1.0, LengthConverterEnum.YARDS_TO_INCHES, 1.0,LengthConverterEnum.class);
+            boolean result = lengthObject.compare();
+            Assert.assertTrue(result);
+        } catch (UnitManipulatorException e) {
+        }
+
+    }
+
+    @Test
+    public void given1YardAnd3Feet_WhenCompared_ShouldReturnEqualLength() {
+        try {
+            UnitManipulator lengthObject = new UnitManipulator(LengthConverterEnum.YARDS_TO_INCHES, 1.0, LengthConverterEnum.FEET_TO_INCH, 3.0,LengthConverterEnum.class);
+            boolean result = lengthObject.compare();
+            Assert.assertTrue(result);
+        } catch (UnitManipulatorException e) {
+        }
+    }
+
+    @Test
+    public void given3FeetAnd1Yard_WhenCompared_ShouldReturnEqualLength() {
+        try {
+            UnitManipulator lengthObject = new UnitManipulator(LengthConverterEnum.FEET_TO_INCH, 3.0, LengthConverterEnum.YARDS_TO_INCHES, 1.0,LengthConverterEnum.class);
+            Assert.assertTrue(lengthObject.compare());
+        } catch (UnitManipulatorException e) {
+        }
+    }
+
+    @Test
+    public void given1FeetAnd1Yard_WhenCompared_ShouldReturnFalse() {
+        try {
+            UnitManipulator lengthObject = new UnitManipulator(LengthConverterEnum.FEET_TO_INCH, 1.0, LengthConverterEnum.YARDS_TO_INCHES, 1.0,LengthConverterEnum.class);
+            Assert.assertFalse(lengthObject.compare());
+        } catch (UnitManipulatorException e) {
+        }
+    }
+
+    @Test
+    public void given1InchAnd1Yard_WhenCompared_ShouldReturnFalse() {
+        try {
+            UnitManipulator lengthObject = new UnitManipulator(LengthConverterEnum.INCH_TO_INCH, 1.0, LengthConverterEnum.YARDS_TO_INCHES, 1.0,LengthConverterEnum.class);
+            Assert.assertFalse(lengthObject.compare());
+        } catch (UnitManipulatorException e) {
+        }
+    }
+
+    @Test
+    public void given36InchAnd1Yard_WhenCompared_ShouldReturnTrue() {
+        try {
+            UnitManipulator lengthObject = new UnitManipulator(LengthConverterEnum.INCH_TO_INCH, 36.0, LengthConverterEnum.YARDS_TO_INCHES, 1.0,LengthConverterEnum.class);
+            Assert.assertTrue(lengthObject.compare());
+        } catch (UnitManipulatorException e) {
+        }
+    }
+
+    @Test
+    public void given1YardAnd36Inch_WhenCompared_ShouldReturnTrue() {
+        try {
+            UnitManipulator lengthObject = new UnitManipulator(LengthConverterEnum.YARDS_TO_INCHES, 1.0, LengthConverterEnum.INCH_TO_INCH, 36.0,LengthConverterEnum.class);
+            Assert.assertTrue(lengthObject.compare());
+        } catch (UnitManipulatorException e) {
+        }
+    }
+
+    @Test
+    public void given2InchAnd5Centimeter_WhenCompared_ShouldReturnTrue() {
+        try {
+            UnitManipulator lengthObject = new UnitManipulator(LengthConverterEnum.INCH_TO_INCH, 2.0, LengthConverterEnum.CENTIMETER_TO_INCH, 5.0,LengthConverterEnum.class);
+            Assert.assertTrue(lengthObject.compare());
+        } catch (UnitManipulatorException e) {
+        }
+    }
+
+    @Test
+    public void given2InchAnd2Inch_ShouldReturnAddition() {
+        try {
+            UnitManipulator lengthObject = new UnitManipulator(LengthConverterEnum.INCH_TO_INCH, 2.0, LengthConverterEnum.INCH_TO_INCH, 2.0,LengthConverterEnum.class);
+            Assert.assertEquals(4, lengthObject.addTwoUnit(), 0.0);
+        } catch (UnitManipulatorException e) {
+        }
+    }
+
+    @Test
+    public void given1FeetAnd2Inch_ShouldReturnAddition() {
+        try {
+            UnitManipulator lengthObject = new UnitManipulator(LengthConverterEnum.FEET_TO_INCH, 1.0, LengthConverterEnum.INCH_TO_INCH, 2.0,LengthConverterEnum.class);
+            Assert.assertEquals(14, lengthObject.addTwoUnit(), 0.0);
+        } catch (UnitManipulatorException e) {
+        }
+    }
+
+    @Test
+    public void given1FeetAnd1Feet_ShouldReturnAddition() {
+        try {
+            UnitManipulator lengthObject = new UnitManipulator(LengthConverterEnum.FEET_TO_INCH, 1.0, LengthConverterEnum.FEET_TO_INCH, 1.0,LengthConverterEnum.class);
+            Assert.assertEquals(24, lengthObject.addTwoUnit(), 0.0);
+        } catch (UnitManipulatorException e) {
+        }
+    }
+
+    @Test
+    public void given2InchAndTwoPointFiveCentimeter_ShouldReturnAddition() {
+        try {
+            UnitManipulator lengthObject = new UnitManipulator(LengthConverterEnum.INCH_TO_INCH, 2.0, LengthConverterEnum.CENTIMETER_TO_INCH, 2.5,LengthConverterEnum.class);
+            Assert.assertEquals(3, Math.round(lengthObject.addTwoUnit()), 0.0);
+        } catch (UnitManipulatorException e) {
+        }
+    }
 }
