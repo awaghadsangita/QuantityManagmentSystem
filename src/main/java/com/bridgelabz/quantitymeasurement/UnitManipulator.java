@@ -10,29 +10,32 @@ public class UnitManipulator<T> {
     private String secondUnitName;
     private double valueOne;
     private double valueTwo;
+    private Class<T> unitEnumClassName;
+    Map<String, IUnitConversion> enumMapList = null;
 
-    public UnitManipulator(Object firstUnitName, double valueOne,Object secondUnitName, double valueTwo) {
+    public UnitManipulator(Object firstUnitName, double valueOne, Object secondUnitName, double valueTwo, Class<T> unitEnumClassName) {
+        this.enumMapList = new HashMap<>();
         this.firstUnitName = firstUnitName.toString();
         this.secondUnitName = secondUnitName.toString();
         this.valueOne = valueOne;
         this.valueTwo = valueTwo;
+        this.unitEnumClassName = unitEnumClassName;
     }
 
-    public <T extends Enum<T> & IUnitConversion> boolean compare(Class<T> className) {
-        Map<String,IUnitConversion> enumMapList=new HashMap<>();
-        List<IUnitConversion> enumList= Arrays.asList(className.getEnumConstants());
-        for(IUnitConversion enumName:enumList){
-            enumMapList.put(enumName.toString(),enumName);
-        }
-        return Double.compare(enumMapList.get(firstUnitName).convert(valueOne), enumMapList.get(secondUnitName).convert(valueTwo)) == 0;
+    public <T extends Enum<T> & IUnitConversion> boolean compare() {
+        this.setEnumNameMap();
+        return Double.compare(this.enumMapList.get(firstUnitName).convert(valueOne), this.enumMapList.get(secondUnitName).convert(valueTwo)) == 0;
     }
 
-    public  <T extends Enum<T> & IUnitConversion> double addTwoUnit(Class<T> className) {
-        Map<String,IUnitConversion> enumMapList=new HashMap<>();
-        List<IUnitConversion> enumList= Arrays.asList(className.getEnumConstants());
-        for(IUnitConversion enumName:enumList){
-            enumMapList.put(enumName.toString(),enumName);
+    public <T extends Enum<T> & IUnitConversion> void setEnumNameMap() {
+        List<IUnitConversion> enumList = (List<IUnitConversion>) Arrays.asList(this.unitEnumClassName.getEnumConstants());
+        for (IUnitConversion enumName : enumList) {
+            this.enumMapList.put(enumName.toString(), enumName);
         }
+    }
+
+    public double addTwoUnit() {
+        this.setEnumNameMap();
         return enumMapList.get(firstUnitName).convert(valueOne) + enumMapList.get(secondUnitName).convert(valueTwo);
     }
 }
