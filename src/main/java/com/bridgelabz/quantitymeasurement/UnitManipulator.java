@@ -22,9 +22,13 @@ public class UnitManipulator<T> {
         this.unitEnumClassName = unitEnumClassName;
     }
 
-    public <T extends Enum<T> & IUnitConversion> boolean compare() {
-        this.setEnumNameMap();
-        return Double.compare(this.enumMapList.get(firstUnitName).convert(valueOne), this.enumMapList.get(secondUnitName).convert(valueTwo)) == 0;
+    public <T extends Enum<T> & IUnitConversion> boolean compare() throws UnitManipulatorException {
+        try {
+            this.setEnumNameMap();
+            return Double.compare(this.enumMapList.get(firstUnitName).convert(valueOne), this.enumMapList.get(secondUnitName).convert(valueTwo)) == 0;
+        }catch(NullPointerException e){
+            throw new UnitManipulatorException("Different unit Comparision issue",UnitManipulatorException.ExceptionType.UNIT_TYPE_ISSUE);
+        }
     }
 
     public <T extends Enum<T> & IUnitConversion> void setEnumNameMap() {
@@ -34,8 +38,14 @@ public class UnitManipulator<T> {
         }
     }
 
-    public double addTwoUnit() {
-        this.setEnumNameMap();
-        return enumMapList.get(firstUnitName).convert(valueOne) + enumMapList.get(secondUnitName).convert(valueTwo);
+    public double addTwoUnit() throws UnitManipulatorException {
+        try {
+            this.setEnumNameMap();
+            return enumMapList.get(firstUnitName).convert(valueOne) + enumMapList.get(secondUnitName).convert(valueTwo);
+        }catch(NullPointerException e){
+            throw new UnitManipulatorException("Different unit Comparision issue",UnitManipulatorException.ExceptionType.UNIT_TYPE_ISSUE);
+        }
+
+
     }
 }
