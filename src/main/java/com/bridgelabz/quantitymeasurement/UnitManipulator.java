@@ -1,9 +1,6 @@
 package com.bridgelabz.quantitymeasurement;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class UnitManipulator<T> {
     private String firstUnitName;
@@ -25,7 +22,7 @@ public class UnitManipulator<T> {
     public <T extends Enum<T> & IUnitConversion> boolean compare() throws UnitManipulatorException {
         try {
             this.setEnumNameMap();
-            return Double.compare(this.enumMapList.get(firstUnitName).convert(valueOne), this.enumMapList.get(secondUnitName).convert(valueTwo)) == 0;
+            return Double.compare(Math.round(this.enumMapList.get(firstUnitName).convert(valueOne)), Math.round(this.enumMapList.get(secondUnitName).convert(valueTwo))) == 0;
         }catch(NullPointerException e){
             throw new UnitManipulatorException("Different unit Comparision issue",UnitManipulatorException.ExceptionType.UNIT_TYPE_ISSUE);
         }
@@ -46,4 +43,5 @@ public class UnitManipulator<T> {
             throw new UnitManipulatorException("Different unit Comparision issue",UnitManipulatorException.ExceptionType.UNIT_TYPE_ISSUE);
         }
     }
+
 }
