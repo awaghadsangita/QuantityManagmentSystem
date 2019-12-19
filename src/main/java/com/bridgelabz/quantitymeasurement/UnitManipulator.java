@@ -37,4 +37,14 @@ public class UnitManipulator<T> {
         that.setEnumNameMap();
         return this.enumMapList.get(this.unitName).convert(this.value) + that.enumMapList.get(that.unitName).convert(that.value);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UnitManipulator<?> that = (UnitManipulator<?>) o;
+        return Double.compare(that.value, value) == 0 &&
+                Objects.equals(unitName, that.unitName) &&
+                Objects.equals(unitEnumClassName, that.unitEnumClassName);
+    }
 }

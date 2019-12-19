@@ -255,4 +255,43 @@ public class UnitManipulatorTest {
         } catch (UnitManipulatorException e) {
         }
     }
+
+    @Test
+    public void given0FeetAnd0Feet_ShouldReturnTrue() {
+        UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.FEET, 0.0,LengthConverterEnum.class);
+        UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.FEET, 0.0,LengthConverterEnum.class);
+        Assert.assertEquals(unitManipulatorOne,unitManipulatorTwo);
+    }
+    @Test
+    public void given0FeetAnd1Feet_ShouldReturnNotEqual() {
+        UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.FEET, 0.0,LengthConverterEnum.class);
+        UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.FEET, 1.0,LengthConverterEnum.class);
+        boolean result=unitManipulatorOne.equals(unitManipulatorTwo);
+        Assert.assertFalse(result);
+    }
+    @Test
+    public void given0InchAnd0Inch_ShouldReturnTrue() {
+        UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.INCH, 0.0,LengthConverterEnum.class);
+        UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.INCH, 0.0,LengthConverterEnum.class);
+        Assert.assertEquals(unitManipulatorOne,unitManipulatorTwo);
+    }
+    @Test
+    public void given0InchAnd1Inch_ShouldReturnNotEqual() {
+        UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.INCH, 0.0,LengthConverterEnum.class);
+        UnitManipulator unitManipulatorTwo = new UnitManipulator(LengthConverterEnum.INCH, 1.0,LengthConverterEnum.class);
+        boolean result=unitManipulatorOne.equals(unitManipulatorTwo);
+        Assert.assertFalse(result);
+    }
+    @Test
+    public void given1FeetAndNull_WhenEqual_ShouldReturnFalse() {
+        UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.INCH, 0.0,LengthConverterEnum.class);
+        boolean result = unitManipulatorOne.equals(null);
+        Assert.assertFalse(result);
+    }
+    @Test
+    public void given1FeetAndSame1FeetObject_WhenEqual_ShouldReturnTrue() {
+        UnitManipulator unitManipulatorOne = new UnitManipulator(LengthConverterEnum.INCH, 0.0,LengthConverterEnum.class);
+        boolean result =unitManipulatorOne.equals(unitManipulatorOne);
+        Assert.assertTrue(result);
+    }
 }
