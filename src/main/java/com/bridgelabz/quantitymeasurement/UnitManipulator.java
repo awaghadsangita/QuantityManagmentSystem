@@ -15,12 +15,11 @@ public class UnitManipulator<T> {
         this.unitEnumClassName = unitEnumClassName;
     }
 
-    public <T extends Enum<T> & IUnitConversion> boolean compare(UnitManipulator<T> that) throws UnitManipulatorException {
+    public boolean compare(UnitManipulator<T> that) throws UnitManipulatorException {
         if (!this.unitEnumClassName.equals(that.unitEnumClassName))
             throw new UnitManipulatorException("Different unit Comparision issue", UnitManipulatorException.ExceptionType.UNIT_TYPE_ISSUE);
         this.setEnumNameMap();
-        that.setEnumNameMap();
-        return Double.compare(Math.round(this.enumMapList.get(this.unitName).convert(this.value)), Math.round(that.enumMapList.get(that.unitName).convert(that.value))) == 0;
+         return Double.compare(Math.round(this.enumMapList.get(this.unitName).convert(this.value)), Math.round(this.enumMapList.get(that.unitName).convert(that.value))) == 0;
     }
 
     public <T extends Enum<T> & IUnitConversion> void setEnumNameMap() {
@@ -34,8 +33,7 @@ public class UnitManipulator<T> {
         if (!this.unitEnumClassName.equals(that.unitEnumClassName))
             throw new UnitManipulatorException("Different unit addition issue", UnitManipulatorException.ExceptionType.UNIT_TYPE_ISSUE);
         this.setEnumNameMap();
-        that.setEnumNameMap();
-        return this.enumMapList.get(this.unitName).convert(this.value) + that.enumMapList.get(that.unitName).convert(that.value);
+        return this.enumMapList.get(this.unitName).convert(this.value) + this.enumMapList.get(that.unitName).convert(that.value);
     }
 
     @Override
