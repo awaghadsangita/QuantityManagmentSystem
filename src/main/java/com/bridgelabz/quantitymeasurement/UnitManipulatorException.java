@@ -1,7 +1,7 @@
 package com.bridgelabz.quantitymeasurement;
 
 public class UnitManipulatorException extends Exception {
-    enum ExceptionType {UNIT_TYPE_ISSUE}
+    enum ExceptionType {UNIT_TYPE_ISSUE,TEMPERATURE_ADDITION_ISSUE}
 
     ExceptionType type;
 

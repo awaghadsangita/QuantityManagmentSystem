@@ -6,7 +6,7 @@ public class UnitManipulator<T> {
     private String unitName;
     private double value;
     private Class<T> unitEnumClassName;
-    Map<String, IUnitConversion> enumMapList = null;
+    Map<String, IUnitConversion> enumMapList;
 
     public UnitManipulator(Object UnitName, double value, Class<T> unitEnumClassName) {
         this.enumMapList = new HashMap<>();
@@ -17,9 +17,9 @@ public class UnitManipulator<T> {
 
     public boolean compare(UnitManipulator<T> that) throws UnitManipulatorException {
         if (!this.unitEnumClassName.equals(that.unitEnumClassName))
-            throw new UnitManipulatorException("Different unit Comparision issue", UnitManipulatorException.ExceptionType.UNIT_TYPE_ISSUE);
+            throw new UnitManipulatorException("Different Unit Comparision issue", UnitManipulatorException.ExceptionType.UNIT_TYPE_ISSUE);
         this.setEnumNameMap();
-         return Double.compare(Math.round(this.enumMapList.get(this.unitName).convert(this.value)), Math.round(this.enumMapList.get(that.unitName).convert(that.value))) == 0;
+        return Double.compare(Math.round(this.enumMapList.get(this.unitName).convert(this.value)), Math.round(this.enumMapList.get(that.unitName).convert(that.value))) == 0;
     }
 
     public <T extends Enum<T> & IUnitConversion> void setEnumNameMap() {
@@ -31,7 +31,9 @@ public class UnitManipulator<T> {
 
     public double addTwoUnit(UnitManipulator<T> that) throws UnitManipulatorException {
         if (!this.unitEnumClassName.equals(that.unitEnumClassName))
-            throw new UnitManipulatorException("Different unit addition issue", UnitManipulatorException.ExceptionType.UNIT_TYPE_ISSUE);
+            throw new UnitManipulatorException("units addition issue", UnitManipulatorException.ExceptionType.UNIT_TYPE_ISSUE);
+        if(this.unitEnumClassName.equals(TemperatureConverterEnum.class))
+            throw new UnitManipulatorException("temperature should not be added", UnitManipulatorException.ExceptionType.TEMPERATURE_ADDITION_ISSUE);
         this.setEnumNameMap();
         return this.enumMapList.get(this.unitName).convert(this.value) + this.enumMapList.get(that.unitName).convert(that.value);
     }

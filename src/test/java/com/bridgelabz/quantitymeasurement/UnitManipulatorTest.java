@@ -300,4 +300,14 @@ public class UnitManipulatorTest {
         boolean result = unitManipulatorOne.equals(unitManipulatorOne);
         Assert.assertTrue(result);
     }
+    @Test
+    public void given1FahrenheitAnd1Fahrenheit_WhenAdded_ShouldThrowException() {
+        try {
+            UnitManipulator unitManipulatorOne = new UnitManipulator(TemperatureConverterEnum.FAHRENHEIT, 1.0, TemperatureConverterEnum.class);
+            UnitManipulator unitManipulatorTwo = new UnitManipulator(TemperatureConverterEnum.FAHRENHEIT, 1.0, TemperatureConverterEnum.class);
+            unitManipulatorOne.addTwoUnit(unitManipulatorTwo);
+            } catch (UnitManipulatorException e) {
+            Assert.assertEquals(UnitManipulatorException.ExceptionType.TEMPERATURE_ADDITION_ISSUE,e.type);
+        }
+    }
 }
