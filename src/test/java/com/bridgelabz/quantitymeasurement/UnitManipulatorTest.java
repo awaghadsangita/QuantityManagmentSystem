@@ -79,7 +79,7 @@ public class UnitManipulatorTest {
     @Test
     public void given1CelsiusAnd33Point8Fahrenheit_WhenCompare_ShouldReturnTrue() {
         try {
-            UnitManipulator unitManipulatorOne = new UnitManipulator(TemperatureConverterEnum.FAHRENHEIT_TO_CELSIUS, 33.8);
+            UnitManipulator unitManipulatorOne = new UnitManipulator(TemperatureConverterEnum.FAHRENHEIT, 33.8);
             UnitManipulator unitManipulatorTwo = new UnitManipulator(TemperatureConverterEnum.CELSIUS, 1.0);
             Assert.assertTrue(unitManipulatorOne.compare(unitManipulatorTwo));
         } catch (UnitManipulatorException e) {
@@ -100,7 +100,7 @@ public class UnitManipulatorTest {
     public void given212FahrenheitAnd100Celsius_WhenCompare_ShouldReturnTrue() {
         try {
             UnitManipulator unitManipulatorOne = new UnitManipulator(TemperatureConverterEnum.FAHRENHEIT, 212);
-            UnitManipulator unitManipulatorTwo = new UnitManipulator(TemperatureConverterEnum.CELSIUS_TO_FAHRENHEIT, 100);
+            UnitManipulator unitManipulatorTwo = new UnitManipulator(TemperatureConverterEnum.CELSIUS, 100);
             Assert.assertTrue(unitManipulatorOne.compare(unitManipulatorTwo));
         } catch (UnitManipulatorException e) {
         }
