@@ -17,7 +17,7 @@ public class TemperatureConverterEnumTest {
 
     @Test
     public void given1Celsius_ShouldReturn33Point8Fahrenheit() {
-        Assert.assertEquals(33.8, TemperatureConverterEnum.CELSIUS_TO_FAHRENHEIT.convert(1), 0.0);
+        Assert.assertEquals(34.0, TemperatureConverterEnum.CELSIUS_TO_FAHRENHEIT.convert(1), 0.0);
     }
 
     @Test
